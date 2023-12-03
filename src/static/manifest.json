@@ -1,0 +1,10 @@
+{
+  "name": "Nteracy",
+  "description": "디지털 리터러시 향상을 위해 제공되는 Chrome Extension",
+  "manifest_version": 3,
+  "version": "1.0.1",
+  "action": {
+    "default_title": "Nteracy",
+    "default_popup": "popup.html"
+  }
+}

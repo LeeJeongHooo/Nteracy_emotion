@@ -1,0 +1,29 @@
+{
+  "name": "nteracy",
+  "version": "1.0.0",
+  "description": "디지털 문해력으로 인한 삶의 질 격차까지 이어지는 문제점을 해결하며, 특히 챗 GPT의 등장으로 유튜브를 통한 가짜 뉴스의 피해가 증가하고 있다. 유튜브의 경우 모든 연령대에서 접근성이 좋기 때문에 진위판단이 중요하다. 뉴스 영상에 대해 스스로 정보를 판단하는 기준을 제시 후 이 영상이 가짜인지 아닌지 리터러시를 향상시켜주는 서비스",
+  "main": "webpack.common.js",
+  "scripts": {
+    "dev": "webpack",
+    "start": "npx webpack --watch",
+    "watch": "webpack --watch --progress --config webpack.dev.js",
+    "build": "webpack --progress --config webpack.prod.js"
+  },
+  "author": "leejeongho",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.2.41",
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.3",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.10.0"
+  },
+  "dependencies": {
+    "@types/react-dom": "^18.2.17",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.2"
+  }
+}
