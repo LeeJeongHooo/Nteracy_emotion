@@ -13,13 +13,20 @@ const getHtmlPlugins = (chunks) => {
 };
 
 module.exports = {
-  entry: { popup: path.resolve("./src/popup/Popup.tsx") },
+  entry: {
+    popup: path.resolve("./src/popup/Popup.tsx"),
+    contentscript: path.resolve("./src/contentscript/index.tsx"),
+  },
   module: {
     rules: [
       {
         use: "ts-loader",
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
+      },
+      {
+        use: ["style-loader", "css-loader"],
+        test: /\.css$/i,
       },
     ],
   },
@@ -31,8 +38,13 @@ module.exports = {
     }),
     ...getHtmlPlugins(["popup"]),
   ],
-  resolve: { extensions: [".tsx", ".ts", ".js"] },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+    alias: {
+      "@src": path.resolve(__dirname, "src"),
+    },
+  },
   output: {
-    filename: "popup.js",
+    filename: "[name].js",
   },
 };
