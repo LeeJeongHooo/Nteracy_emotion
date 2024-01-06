@@ -6,5 +6,8 @@
   "action": {
     "default_title": "Nteracy",
     "default_popup": "popup.html"
-  }
+  },
+  "content_scripts": [
+    { "matches": ["https://www.youtube.com/*"], "js": ["contentscript.js"] }
+  ]
 }
