@@ -1,14 +1,23 @@
-import React from "react";
-import { ThemeProvider } from "@emotion/react";
+import { Global, ThemeProvider, css } from "@emotion/react";
 import theme from "../styles/theme";
 import styled from "@emotion/styled";
+import Button from "./components/Button/Button";
+import emotionReset from "emotion-reset";
 
 const App = () => {
-  console.log("재렌더링");
   return (
-    <ThemeProvider theme={theme}>
-      <StyledContainer>DigtialLiteracy</StyledContainer>
-    </ThemeProvider>
+    <>
+      <Global
+        styles={css`
+          ${emotionReset}
+        `}
+      />
+      <ThemeProvider theme={theme}>
+        <StyledContainer>
+          <Button disabled>TEST</Button>
+        </StyledContainer>
+      </ThemeProvider>
+    </>
   );
 };
 
