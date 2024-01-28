@@ -29,7 +29,7 @@ module.exports = {
         test: /\.css$/i,
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|svg)$/,
         type: "asset/inline",
       },
     ],
