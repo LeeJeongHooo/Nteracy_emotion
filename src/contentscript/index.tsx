@@ -2,11 +2,24 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "@src/contentscript/App";
 
+let oldHref: string = "";
 window.onload = async () => {
   console.log("window Load");
   if (window.location.search !== "" && window.location.search.includes("v=")) {
     await init();
   }
+
+  const bodyList = document.querySelector("body");
+  let observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (oldHref !== document.location.href) {
+        console.log(oldHref);
+        oldHref = document.location.href;
+        init();
+      }
+    });
+  });
+  observer.observe(bodyList, { childList: true, subtree: true });
 };
 
 const init = async () => {
