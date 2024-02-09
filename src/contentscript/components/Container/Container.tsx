@@ -10,9 +10,9 @@ const Container = ({ children }: IContainerProps) => {
 };
 
 const StyledContainer = styled.div`
-  margin-top: 0.5rem;
-  margin-bottom: 0.8rem;
-  border-radius: 0.8rem;
+  margin-top: ${({ theme }) => theme.space.xxSmall};
+  margin-bottom: ${({ theme }) => theme.space.xSmall};
+  border-radius: 1.2rem;
   overflow: hidden;
 `;
 
