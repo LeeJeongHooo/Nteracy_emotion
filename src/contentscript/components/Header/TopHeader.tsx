@@ -12,7 +12,7 @@ const TopHeader = (props: ITopHeaderProps) => {
   const { isOpen, onOpenInformation } = props;
   return (
     <StyledTopHeader isOpen={isOpen}>
-      <img src={Logo} alt="logo" />
+      <img className="logo" src={Logo} alt="logo" />
       <div>
         <img src={IconHistory} alt="history" />
         <img
@@ -33,11 +33,15 @@ const StyledTopHeader = styled.div<{ isOpen: boolean }>`
   background-color: ${({ theme }) => theme.color.primary};
   color: white;
   padding: 1rem 2.5rem;
+  .logo {
+    width: 10rem;
+    aspect-ratio: 11/4;
+  }
   > div {
     display: flex;
-    gap: 0.4rem;
+    gap: ${({ theme }) => theme.space.xSmall};
     img {
-      width: 3rem;
+      width: 2.4rem;
       aspect-ratio: 1;
     }
   }
