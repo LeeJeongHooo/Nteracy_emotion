@@ -21,7 +21,7 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   border: 0;
-  border-radius: 0.8rem;
+  border-radius: 1.2rem;
   padding: 1rem 1.2rem;
   background-color: ${({ theme, disabled }) =>
     !disabled ? theme.color.primary : theme.color.gray};
