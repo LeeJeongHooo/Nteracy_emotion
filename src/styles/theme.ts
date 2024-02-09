@@ -31,7 +31,7 @@ const space = {
   xSmall: "0.8rem",
   small: "1.2rem",
   mid: "1.6rem",
-  large: "2.4rem",
+  large: "2rem",
 };
 
 export type ColorType = typeof color;
