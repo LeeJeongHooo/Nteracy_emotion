@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 import styled from "@emotion/styled";
 
-interface ButtonProps {
+interface IButtonProps {
   children: ReactNode;
   onClick?: () => void;
   disabled?: boolean;
 }
 
-const Button = ({ children, onClick, disabled }: ButtonProps) => {
+const Button = ({ children, onClick, disabled }: IButtonProps) => {
   console.log(disabled);
   return (
     <StyledButton onClick={onClick} disabled={disabled}>
