@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import * as S from "@src/contentscript/components/Button/styles/Button.styled.ts";
+import * as S from "@src/contentscript/components/Button/styles/Button.styled";
 
 interface IButtonProps {
   children: ReactNode;
