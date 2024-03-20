@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import styled from "@emotion/styled";
+import * as S from "@src/contentscript/components/Button/styles/Button.styled.ts";
 
 interface IButtonProps {
   children: ReactNode;
@@ -10,23 +10,10 @@ interface IButtonProps {
 const Button = ({ children, onClick, disabled }: IButtonProps) => {
   console.log(disabled);
   return (
-    <StyledButton onClick={onClick} disabled={disabled}>
+    <S.Button onClick={onClick} disabled={disabled}>
       {children}
-    </StyledButton>
+    </S.Button>
   );
 };
-
-const StyledButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  border-radius: 1.2rem;
-  padding: 1rem 1.2rem;
-  background-color: ${({ theme, disabled }) =>
-    !disabled ? theme.color.primary : theme.color.gray};
-  color: ${({ theme, disabled }) => (!disabled ? "#fff" : "#000")};
-  cursor: ${({ theme, disabled }) => (!disabled ? "cursor" : "not-allowed")};
-`;
 
 export default Button;

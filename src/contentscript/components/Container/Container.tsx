@@ -1,19 +1,11 @@
-import styled from "@emotion/styled";
 import { ReactNode } from "react";
-
+import * as S from "@src/contentscript/components/Container/styles/Container.styled";
 interface IContainerProps {
   children: ReactNode;
 }
 
 const Container = ({ children }: IContainerProps) => {
-  return <StyledContainer>{children}</StyledContainer>;
+  return <S.Container>{children}</S.Container>;
 };
-
-const StyledContainer = styled.div`
-  margin-top: ${({ theme }) => theme.space.xxSmall};
-  margin-bottom: ${({ theme }) => theme.space.xSmall};
-  border-radius: 1.2rem;
-  overflow: hidden;
-`;
 
 export default Container;
