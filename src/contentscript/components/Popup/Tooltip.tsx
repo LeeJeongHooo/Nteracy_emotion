@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 interface ITooptipProps {
   children: ReactNode;
@@ -8,10 +8,35 @@ interface ITooptipProps {
 
 const Tooltip = (props: ITooptipProps) => {
   const { children, message } = props;
+
+  const tooltipPos = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [tooltipSize, setTooltipSize] = useState<number>();
+  const onMouseEnter = () => {
+    setIsOpen(true);
+  };
+  const onMouseLeave = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    setTooltipSize(() => {
+      return (
+        tooltipPos.current.parentElement.clientWidth -
+        tooltipPos.current.previousElementSibling.clientWidth -
+        20
+      );
+    });
+  }, [isOpen]);
+
   return (
-    <TooltipWrapper>
+    <TooltipWrapper
+      ref={tooltipPos}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {children}
-      <TooltipContent>{message}</TooltipContent>
+      {isOpen && <TooltipContent width={tooltipSize}>{message}</TooltipContent>}
     </TooltipWrapper>
   );
 };
@@ -21,22 +46,16 @@ export default Tooltip;
 const TooltipWrapper = styled.div`
   position: relative;
   cursor: pointer;
-  &:hover {
-    div {
-      opacity: 1;
-    }
-  }
 `;
 
-const TooltipContent = styled.div`
+const TooltipContent = styled.div<{ width: number }>`
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   left: 2rem;
-  width: 20rem;
+  transform: translateY(-50%);
+  width: ${(props) => props.width + "px"};
   padding: 0.4rem;
-  opacity: 0;
-  transition: all 0.75s ease;
+  border-radius: 0.8rem;
   background-color: ${({ theme }) => theme.color.lightPrimary};
   &::before {
     content: "";
