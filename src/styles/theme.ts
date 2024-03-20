@@ -10,6 +10,7 @@ const color = {
 };
 
 const fontSize = {
+  xxSmall: "1.0rem",
   xSmall: "1.2rem",
   small: "1.4rem",
   mid: "1.6rem",
