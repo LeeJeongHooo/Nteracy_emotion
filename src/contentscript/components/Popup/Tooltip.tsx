@@ -23,8 +23,7 @@ const Tooltip = (props: ITooptipProps) => {
     setTooltipSize(() => {
       return (
         tooltipPos.current.parentElement.clientWidth -
-        tooltipPos.current.previousElementSibling.clientWidth -
-        20
+        tooltipPos.current.previousElementSibling.clientWidth
       );
     });
   }, [isOpen]);
@@ -49,13 +48,16 @@ const TooltipWrapper = styled.div`
 `;
 
 const TooltipContent = styled.div<{ width: number }>`
+  z-index: 10;
+  font-size: ${({ theme }) => theme.fontSize.xSmall};
   position: absolute;
+  text-align: center;
   top: 50%;
   left: 2rem;
   transform: translateY(-50%);
   width: ${(props) => props.width + "px"};
   padding: 0.4rem;
-  border-radius: 0.8rem;
+  border-radius: 0.4rem;
   background-color: ${({ theme }) => theme.color.lightPrimary};
   &::before {
     content: "";
