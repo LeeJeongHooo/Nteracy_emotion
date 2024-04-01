@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { RadioDispatchContext, RadioStateContext } from "../RadioContext";
+import { RadioContext } from "../RadioContext";
 
 const useRadio = () => {
-  return useContext(RadioDispatchContext);
+  return useContext(RadioContext);
 };
 
 export default useRadio;
