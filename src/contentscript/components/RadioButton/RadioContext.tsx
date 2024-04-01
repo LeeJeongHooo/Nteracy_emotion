@@ -1,7 +1,6 @@
 import { createContext } from "react";
 
-export const RadioDispatchContext = createContext({
+export const RadioContext = createContext({
   onChange: (value: string) => {},
+  value: "",
 });
-
-export const RadioStateContext = createContext<string>("");
