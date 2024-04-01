@@ -1,12 +1,20 @@
 import { ReactNode } from "react";
-import RadioProvider from "./RadioProvider";
+import { RadioContext } from "./RadioContext";
 
 interface IRadioButtonGroup {
   children: ReactNode;
+  onChange: (value: string) => void;
+  value: string;
 }
+
 const RadioButtonGroup = (props: IRadioButtonGroup) => {
-  const { children } = props;
-  return <RadioProvider>{children}</RadioProvider>;
+  const { children, ...rest } = props;
+
+  return (
+    <div>
+      <RadioContext.Provider value={rest}>{children}</RadioContext.Provider>
+    </div>
+  );
 };
 
 export default RadioButtonGroup;
