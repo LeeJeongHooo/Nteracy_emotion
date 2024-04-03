@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { ReactNode, useEffect, useRef, useState } from "react";
+import { CSSTransition } from "react-transition-group";
 
 interface ITooptipProps {
   children: ReactNode;
@@ -10,6 +11,7 @@ const Tooltip = (props: ITooptipProps) => {
   const { children, message } = props;
 
   const tooltipPos = useRef<HTMLDivElement>(null);
+  const tooltipContentDom = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [tooltipSize, setTooltipSize] = useState<number>();
   const onMouseEnter = () => {
@@ -28,6 +30,8 @@ const Tooltip = (props: ITooptipProps) => {
     });
   }, [isOpen]);
 
+  const duration = 500;
+
   return (
     <TooltipWrapper
       ref={tooltipPos}
@@ -35,7 +39,17 @@ const Tooltip = (props: ITooptipProps) => {
       onMouseLeave={onMouseLeave}
     >
       {children}
-      {isOpen && <TooltipContent width={tooltipSize}>{message}</TooltipContent>}
+      <CSSTransition
+        nodeRef={tooltipContentDom}
+        in={isOpen}
+        timeout={duration}
+        classNames="fade"
+        unmountOnExit
+      >
+        <TooltipContent ref={tooltipContentDom} width={tooltipSize}>
+          {message}
+        </TooltipContent>
+      </CSSTransition>
     </TooltipWrapper>
   );
 };
@@ -69,5 +83,23 @@ const TooltipContent = styled.div<{ width: number }>`
     border-style: solid;
     border-color: transparent ${({ theme }) => theme.color.lightPrimary}
       transparent transparent;
+  }
+
+  &.fade-enter {
+    opacity: 0;
+  }
+
+  &.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+
+  &.fade-exit {
+    opacity: 1;
+  }
+
+  &.fade-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
   }
 `;
