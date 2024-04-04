@@ -10,9 +10,9 @@ import { useState } from "react";
 
 const InformationList = () => {
   // 신뢰할 만한 출처를 포함하고 있는지?
-  const [isReliable, setIsReliable] = useState("");
+  const [isReliable, setIsReliable] = useState<string>("");
   // 사실과 개인의 의견을 분리하고 있는지?
-  const [isFact, setIsFact] = useState("");
+  const [isFact, setIsFact] = useState<string>("");
 
   return (
     <S.InformationList>
@@ -71,7 +71,6 @@ const InformationList = () => {
           신뢰할만한 출처에는 주요 언론, 전문지, 시사주간지, 학술 자료, 법령 및
           판례, 통계 및 여론조사, 정부기관 등이 있습니다.
         </GS.CautionText>
-
         <RadioButtonGroup
           value={isReliable}
           onChange={(value) => {
@@ -87,6 +86,16 @@ const InformationList = () => {
           ‘사실’은 실제로 있었던 일이나 현재에 있는 일을 의미하고, ‘의견’은 어떤
           대상에 대하여 가지는 생각을 의미합니다.
         </GS.CautionText>
+        <RadioButtonGroup
+          value={isFact}
+          onChange={(value) => {
+            setIsFact(value);
+          }}
+        >
+          <RadioButton label="예" value="1"></RadioButton>
+          <RadioButton label="아니오" value="0"></RadioButton>
+        </RadioButtonGroup>
+
         <Button>평가 완료</Button>
       </InformationItem>
     </S.InformationList>
