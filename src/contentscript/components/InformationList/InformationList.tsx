@@ -14,6 +14,8 @@ const InformationList = () => {
   // 사실과 개인의 의견을 분리하고 있는지?
   const [isFact, setIsFact] = useState<string>("");
 
+  const isEnableButton = isReliable && isFact ? true : false;
+
   return (
     <S.InformationList>
       <InformationItem title="기본정보">
@@ -96,7 +98,7 @@ const InformationList = () => {
           <RadioButton label="아니오" value="0"></RadioButton>
         </RadioButtonGroup>
 
-        <Button>평가 완료</Button>
+        <Button disabled={!isEnableButton}>평가 완료</Button>
       </InformationItem>
     </S.InformationList>
   );
