@@ -40,7 +40,7 @@ const init = async () => {
   }
 
   const selectPosition = document.querySelector(
-    "#secondary.style-scope.ytd-watch-flexy"
+    "#secondary-inner.style-scope.ytd-watch-flexy"
   );
   if (selectPosition) {
     selectPosition.insertAdjacentElement("afterbegin", appContainer);
