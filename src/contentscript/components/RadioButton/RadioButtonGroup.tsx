@@ -10,11 +10,7 @@ interface IRadioButtonGroup {
 const RadioButtonGroup = (props: IRadioButtonGroup) => {
   const { children, ...rest } = props;
 
-  return (
-    <div>
-      <RadioContext.Provider value={rest}>{children}</RadioContext.Provider>
-    </div>
-  );
+  return <RadioContext.Provider value={rest}>{children}</RadioContext.Provider>;
 };
 
 export default RadioButtonGroup;
