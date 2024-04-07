@@ -11,7 +11,7 @@ const InformationItem = (props: IInformationItemProps) => {
 
   return (
     <S.InformationItem>
-      <h3>{title}</h3>
+      <S.InformationTitle>{title}</S.InformationTitle>
       {children}
     </S.InformationItem>
   );
