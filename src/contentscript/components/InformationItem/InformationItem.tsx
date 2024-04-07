@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
 import * as S from "@src/contentscript/components/InformationItem/styles/InformationItem.styled";
 
-interface IInformationCardProps {
+interface IInformationItemProps {
   children?: ReactNode;
   title: string;
 }
 
-const InformationItem = (props: IInformationCardProps) => {
+const InformationItem = (props: IInformationItemProps) => {
   const { title, children } = props;
 
   return (
