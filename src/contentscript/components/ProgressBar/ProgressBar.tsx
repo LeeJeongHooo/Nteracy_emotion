@@ -18,11 +18,11 @@ const ProgressBar = (props: IResponseType) => {
     <S.ProgressBar width={leftPercent}>
       <div>
         <span>
-          <strong>{`${leftPercent}%`}</strong>({left}명)
+          <strong>{`${leftPercent}%`}</strong> ({left}명)
         </span>
       </div>
       <span>
-        <strong>{`${rightPercent}%`}</strong>({right}명)
+        <strong>{`${rightPercent}%`}</strong> ({right}명)
       </span>
     </S.ProgressBar>
   );
