@@ -8,6 +8,7 @@ import RadioButtonGroup from "../RadioButton/RadioButtonGroup";
 import RadioButton from "../RadioButton/RadioButton";
 import { useState } from "react";
 import FlexBox from "../FlexBox/FlexBox";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 const InformationList = () => {
   // 신뢰할 만한 출처를 포함하고 있는지?
@@ -86,13 +87,14 @@ const InformationList = () => {
             <RadioButton label="아니오" value="0"></RadioButton>
           </FlexBox>
         </RadioButtonGroup>
+        <ProgressBar left={6} right={4} total={10} />
 
         <p>해당 영상에서 사실과 개인의 의견을 분리하고 있나요?</p>
         <GS.CautionText>
           ‘사실’은 실제로 있었던 일이나 현재에 있는 일을 의미하고, ‘의견’은 어떤
           대상에 대하여 가지는 생각을 의미합니다.
         </GS.CautionText>
-
+        <ProgressBar left={6} right={4} total={10} />
         <RadioButtonGroup
           value={isFact}
           onChange={(value) => {
