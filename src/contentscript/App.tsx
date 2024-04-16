@@ -1,18 +1,10 @@
 import { Global, ThemeProvider, css } from "@emotion/react";
 import theme from "../styles/theme";
 import emotionReset from "emotion-reset";
-import TopHeader from "./components/Header/TopHeader";
-import { useState } from "react";
 import Container from "@src/contentscript/components/Container/Container";
-import InformationList from "@src/contentscript/components/InformationList/InformationList";
+import MainNteracy from "@src/contentscript/components/MainNteracy/MainNteracy";
 
 const App = () => {
-  // 정보창 열기
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-  const onOpenInformation = () => {
-    setIsOpen((isOpen) => !isOpen);
-  };
-
   return (
     <>
       <Global
@@ -22,11 +14,7 @@ const App = () => {
       />
       <ThemeProvider theme={theme}>
         <Container>
-          <TopHeader
-            isOpen={isOpen}
-            onOpenInformation={onOpenInformation}
-          ></TopHeader>
-          {isOpen && <InformationList />}
+          <MainNteracy />
         </Container>
       </ThemeProvider>
     </>

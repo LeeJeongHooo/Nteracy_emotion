@@ -4,7 +4,9 @@ interface IContainerProps {
   children: ReactNode;
 }
 
-const Container = ({ children }: IContainerProps) => {
+const Container = (props: IContainerProps) => {
+  const { children } = props;
+
   return <S.Container>{children}</S.Container>;
 };
 
